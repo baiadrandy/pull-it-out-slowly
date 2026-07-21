@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pull It Out Slowly</title>
+<meta name="description" content="Pull It Out Slowly — a World of Warcraft guild that plays patient, precise, and occasionally on purpose wrong.">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <img class="hero-logo" src="assets/logo.png" alt="Pull It Out Slowly guild emblem">
+    <p class="eyebrow">A World of Warcraft guild</p>
+    <h1>Pull It&nbsp;Out<br>Slowly</h1>
+    <p class="hero-sub">No hero pulls. No skipped mechanics. No apologies for taking our time.</p>
+    <a class="cta" href="https://discord.gg/fZzsrhgz" target="_blank" rel="noopener">Join the Discord</a>
+  </div>
+</header>
+
+<div class="gauge" data-gauge aria-hidden="true">
+  <span class="gauge-label gauge-label--left">patience</span>
+  <span class="gauge-track"><span class="gauge-fill"></span><span class="gauge-marker"></span></span>
+  <span class="gauge-label gauge-label--right">pull</span>
+</div>
+
+<main>
+
+  <section class="section about">
+    <div class="about-grid">
+      <div class="about-copy">
+        <p class="eyebrow">About the guild</p>
+        <h2>We read the pull before we make it.</h2>
+        <p>Pull It Out Slowly started as a joke about tank etiquette and stuck because it's true. We clear content by understanding it, not by outgearing it. That means slower nights, fewer wipes, and a roster that actually knows what the boss does on pull three.</p>
+        <p>We're currently active through Midnight, running delves, building professions, and gearing up for whatever comes next. If you'd rather learn a fight than brute-force it, you'll fit right in.</p>
+      </div>
+      <dl class="about-stats">
+        <div>
+          <dt>Focus</dt>
+          <dd>Delves &amp; group content</dd>
+        </div>
+        <div>
+          <dt>Pace</dt>
+          <dd>Deliberate, low-drama</dd>
+        </div>
+        <div>
+          <dt>Voice</dt>
+          <dd>Discord</dd>
+        </div>
+        <div>
+          <dt>Recruiting</dt>
+          <dd>Open</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="gauge" data-gauge aria-hidden="true">
+    <span class="gauge-label gauge-label--left">patience</span>
+    <span class="gauge-track"><span class="gauge-fill"></span><span class="gauge-marker"></span></span>
+    <span class="gauge-label gauge-label--right">pull</span>
+  </div>
+
+  <section class="section principles">
+    <p class="eyebrow">How we play</p>
+    <h2>Three things we actually mean</h2>
+    <div class="card-row">
+      <article class="card">
+        <h3>Aggro is a conversation, not a race.</h3>
+        <p>The tank sets the pace. Everyone else reads the room before their next button press.</p>
+      </article>
+      <article class="card">
+        <h3>New to the pull? Good.</h3>
+        <p>We'd rather explain a mechanic once than watch someone learn it the hard way for the fourth time.</p>
+      </article>
+      <article class="card">
+        <h3>Some wipes are on purpose.</h3>
+        <p>We test the edges of a fight so the real attempt isn't a guess. Slow is smooth. Smooth is loot.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="gauge" data-gauge aria-hidden="true">
+    <span class="gauge-label gauge-label--left">patience</span>
+    <span class="gauge-track"><span class="gauge-fill"></span><span class="gauge-marker"></span></span>
+    <span class="gauge-label gauge-label--right">pull</span>
+  </div>
+
+  <section class="section join">
+    <p class="eyebrow">Join us</p>
+    <h2>Bring your patience. We'll bring the pace.</h2>
+    <p class="join-sub">Say hello in Discord and tell us what you're playing. No trial period, no attendance spreadsheet — just show up ready to pull it out slowly.</p>
+    <a class="cta cta--large" href="https://discord.gg/fZzsrhgz" target="_blank" rel="noopener">discord.gg/fZzsrhgz</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Pull It Out Slowly &middot; pullitoutslowly.com</p>
+</footer>
+
+<script>
+  // Fill the tension gauges in as they enter view. Respects reduced-motion.
+  const gauges = document.querySelectorAll('[data-gauge]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion) {
+    gauges.forEach(g => g.classList.add('is-filled'));
+  } else if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-filled');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    gauges.forEach(g => io.observe(g));
+  } else {
+    gauges.forEach(g => g.classList.add('is-filled'));
+  }
+</script>
+
+</body>
+</html>
