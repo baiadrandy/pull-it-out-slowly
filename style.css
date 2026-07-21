@@ -120,6 +120,22 @@ h1 {
   outline-offset: 3px;
 }
 
+.roster-frame {
+  width: min(640px, 100%);
+  margin: 1.25rem 0 0;
+  padding: 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.roster-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid rgba(239, 231, 217, 0.16);
+}
+
 @media (max-width: 480px) {
   .coming-soon {
     padding: 1.9rem 1rem 2.3rem;
@@ -148,5 +164,10 @@ h1 {
     width: 100%;
     padding: 0.82rem 1rem;
     letter-spacing: 0.07em;
+  }
+
+  .roster-frame {
+    margin-top: 1rem;
+    padding: 0.45rem;
   }
 }
