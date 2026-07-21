@@ -14,9 +14,18 @@
   box-sizing: border-box;
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  overflow-x: hidden;
   color: var(--ink);
   background:
     radial-gradient(circle at 50% -10%, rgba(207, 79, 36, 0.25), transparent 55%),
@@ -32,6 +41,7 @@ img {
 
 .coming-soon {
   min-height: 100vh;
+  min-height: 100dvh;
   width: min(780px, 100%);
   margin: 0 auto;
   padding: clamp(2.5rem, 5vw, 4.5rem) 1.25rem;
@@ -54,13 +64,15 @@ img {
 h1 {
   margin: 0;
   font-size: clamp(2rem, 7vw, 3.7rem);
-  line-height: 1.04;
+  line-height: 1.08;
+  max-width: 12ch;
 }
 
 .lead {
   margin: 0.85rem 0 1.8rem;
   color: var(--ink-dim);
   font-size: clamp(1rem, 2.6vw, 1.2rem);
+  max-width: 28ch;
 }
 
 .gif-frame {
@@ -73,17 +85,23 @@ h1 {
 }
 
 .hero-gif {
+  width: 100%;
+  height: auto;
   border-radius: 4px;
   border: 1px solid rgba(239, 231, 217, 0.16);
 }
 
 .cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
+  text-align: center;
+  max-width: 100%;
   color: #1a1009;
   background: linear-gradient(135deg, #df6a38, var(--accent));
   border-radius: 4px;
@@ -103,11 +121,32 @@ h1 {
 }
 
 @media (max-width: 480px) {
+  .coming-soon {
+    padding: 1.9rem 1rem 2.3rem;
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 9.5vw, 2.35rem);
+  }
+
   .lead {
+    font-size: 1rem;
     margin-bottom: 1.4rem;
   }
 
   .gif-frame {
     margin-bottom: 1.5rem;
+    padding: 0.45rem;
+  }
+
+  .cta {
+    width: 100%;
+    padding: 0.82rem 1rem;
+    letter-spacing: 0.07em;
   }
 }
