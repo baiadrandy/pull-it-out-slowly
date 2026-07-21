@@ -89,6 +89,23 @@ h1, h2, h3 {
   margin: 1.4rem 0 2.2rem;
 }
 
+.hero-gif-frame {
+  width: min(640px, 92vw);
+  margin: 0 0 2.1rem;
+  padding: 0.6rem;
+  background: linear-gradient(135deg, rgba(201, 72, 31, 0.24), rgba(122, 18, 4, 0.14));
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 22px 48px -24px rgba(122, 18, 4, 0.7);
+}
+
+.hero-gif {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  border: 1px solid rgba(222, 214, 201, 0.14);
+}
+
 /* ---------- CTA ---------- */
 
 .cta {
@@ -290,6 +307,14 @@ h1, h2, h3 {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 760px) {
+  .hero {
+    min-height: auto;
+    padding-top: 3.5rem;
+  }
+  .hero-gif-frame {
+    width: 100%;
+    margin-bottom: 1.7rem;
+  }
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
